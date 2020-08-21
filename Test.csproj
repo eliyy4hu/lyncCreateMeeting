@@ -59,7 +59,6 @@
     <Reference Include="Costura, Version=4.1.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
       <HintPath>..\packages\Costura.Fody.4.1.0\lib\net40\Costura.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -85,16 +84,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WSSC.PRT.PNT7.Core\WSSC.PRT.PNT7.Core.csproj">
-      <Project>{ec054ba4-918c-43c3-87ec-a7e45dd10401}</Project>
-      <Name>WSSC.PRT.PNT7.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WSSC.PRT.PNT7.Domain\WSSC.PRT.PNT7.Domain.csproj">
-      <Project>{b5726f47-bb00-49a5-b200-df8704434301}</Project>
-      <Name>WSSC.PRT.PNT7.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

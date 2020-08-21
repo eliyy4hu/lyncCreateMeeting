@@ -21,6 +21,7 @@ namespace WSSC.PRT.PNT7.Domain.Services
         /// </summary>
         public static LyncHttpClientConfigured GetConfiguredLyncClient(string autodiscoveryUrl, string lyncServerUrl)
         {
+            
             return new LyncHttpClientInitState(autodiscoveryUrl, lyncServerUrl)
                 .ReceiveLinks()
                 .ReceiveOauthTokenUrl()
@@ -59,6 +60,7 @@ namespace WSSC.PRT.PNT7.Domain.Services
                 requestMessage.Headers.Authorization =
                     new AuthenticationHeaderValue(state.OauthToken.token_type, state.OauthToken.access_token);
             }
+            
 
             return state.HttpClient.SendAsync(requestMessage);
         }
@@ -101,8 +103,6 @@ namespace WSSC.PRT.PNT7.Domain.Services
                 nvc.Add(new KeyValuePair<string, string>("grant_type", "urn:microsoft.rtc:windows"));
 
                 //var mySecret = File.ReadAllText("mySecret.txt").Split(' ');
-                //var login = "wss\\wss9";
-                //var pass = "wss";
                 //nvc.Add(new KeyValuePair<string, string>("grant_type", "password"));
                 //nvc.Add(new KeyValuePair<string, string>("username", login));
                 //nvc.Add(new KeyValuePair<string, string>("password", pass));
@@ -115,6 +115,12 @@ namespace WSSC.PRT.PNT7.Domain.Services
                 if (response.IsSuccessStatusCode)
                 {
                     state.OauthToken = oauthToken;
+                }
+                else
+                {
+                    Console.WriteLine("Authorization error!\n");
+                    Console.WriteLine($"Get token request finished with code {response.StatusCode}\n");
+                    Console.WriteLine(content);
                 }
                 return this;
             }
